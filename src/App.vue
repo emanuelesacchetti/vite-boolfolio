@@ -1,11 +1,11 @@
 <script>
-    import axios from 'axios';
-    import Header from '../src/components/Header.vue';
+
+    import AppHeader from '../src/components/Header.vue';
     import AppMain from '../src/components/AppMain.vue';
 
     export default {
         components:{
-            Header,
+            AppHeader,
             AppMain
         },
     }
@@ -13,11 +13,11 @@
 
 
 <template>
-    <Header></Header>
+    <AppHeader></AppHeader>
     <AppMain></AppMain>
 </template>
 
 
-<style scoped>
-    @import './styles/general.scss'
+<style lang="scss">
+    @use './styles/general.scss';
 </style>
