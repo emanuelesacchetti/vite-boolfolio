@@ -3,6 +3,7 @@
 <script>
     import axios from 'axios';
     import AppCard from '../components/AppCard.vue';
+    import {store} from '../store.js';
 
     export default {
         components:{
@@ -11,12 +12,13 @@
         name: 'AppMain',
         data(){
             return{
-                projects: []
+                projects: [],
+                store
             }
         },
         methods:{
             getProjects(){
-                axios.get('http://localhost:8000/api/project')
+                axios.get(`${this.store.baseUrl}/api/project`)
                     .then(response => {
                         console.log(response)
                         this.projects = response.data.results;
@@ -33,16 +35,7 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-3" v-for="project in this.projects">
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ project.title }}</h5>
-                        <p class="card-text">{{ project.slug}}</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
+            <AppCard :projects="this.projects"></AppCard>
         </div>
     </div>
 
