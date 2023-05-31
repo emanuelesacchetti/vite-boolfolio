@@ -9,7 +9,7 @@
         components:{
             AppCard
         },
-        name: 'AppMain',
+        name: 'AppList',
         data(){
             return{
                 projects: [],
@@ -20,9 +20,9 @@
             getProjects(){
                 axios.get(`${this.store.baseUrl}/api/project`)
                     .then(response => {
-                        console.log(response)
+
                         this.projects = response.data.results;
-                        console.log(response.data.results)
+
                     })
             }
         },
@@ -35,7 +35,9 @@
 <template>
     <div class="container">
         <div class="row">
-            <AppCard :projects="this.projects"></AppCard>
+            <div class="col-3" v-for="project in projects">
+                <AppCard :project="project"></AppCard>
+            </div>
         </div>
     </div>
 
