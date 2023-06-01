@@ -3,3 +3,20 @@
 .card_img {
     height: 350px;
 }
+
+body{
+    background-color: rgb(35, 37, 49);
+}
+
+.nav-link{
+    color:yellow
+}
+
+.page-link.active, .active > .page-link{
+    background-color: yellow;
+    border-color: black;
+}
+
+.page-link{
+    color: rgb(35, 37, 49);
+}
