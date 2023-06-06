@@ -7,6 +7,6 @@
 
 
 <template>
-    <h1>home page</h1>
+    <h1 style="color:yellow;">home page</h1>
 </template>
 
